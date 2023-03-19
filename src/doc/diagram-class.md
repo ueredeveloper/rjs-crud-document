@@ -1,0 +1,8 @@
+# Documento - Processo - Tipo Documento
+
+Um documento tem um processo e um documento tem um tipo de documento.
+
+[umple - diagrama de classe](http://try.umple.org/?text=class%20Documento%20%7B%0A%20%20Integer%20doc_id%3B%0A%7D%0Aclass%20Processo%20%7B%0A%20%20%20Integer%20proc_id%3B%0A%20%20%20Integer%20proc_fk%3B%0A%20%200..1%20--%20*%20Processo%3B%0A%7D%0A%0Aclass%20TipoDocumento%7B%0A%20%20Integer%20td_id%3B%0A%7D%0Aassociation%20%7B%0A%201%20Processo%20--%20*%20Documento%3B%0A%201%20Documento%20--%201%20TipoDocumento%3B%0A%7D%0A%0Aclass%20Documento%20%7B%0A%20%20public%20static%20void%20main(String%20%5B%20%5D%20args)%20%7B%0A%20%20%20%20System.out.println(%22Class%20Diagram%20Documento%22)%3B%0A%20%20%7D%0A%7D%0A%2F%2F%24%3F%5BEnd_of_model%5D%24%3F%0A%0Anamespace%20-%3B%0A%0A%2F%2F%20%40%40%40skipcppcompile%20-%20Contains%20Java%20Code%0A%2F%2F%20%40%40%40skipphpcompile%20-%20Contains%20Java%20Code%0A%2F%2F%20%40%40%40skiprubycompile%20-%20Contains%20Java%20Code%0A%2F%2F%20%40%40%40skippythoncompile%20-%20Contains%20Java%20Code%0A%0Aclass%20Processo%0A%7B%0A%20%20position%2049%2089%20109%2057.8646%3B%0A%20%20position.association%20Processo__Processo%2015%2C57.8646%200%2C30%3B%0A%7D%0A%0Aclass%20Documento%0A%7B%0A%20%20position%20224%2024%20109%2057.8646%3B%0A%7D%0A%0Aclass%20TipoDocumento%0A%7B%0A%20%20position%20396%2081%20127.75%2057.8646%3B%0A%7D)
+
+![uml - image - svg](https://cruise.umple.org/umpleonline/ump/tmpd4r0tcwmznan/classDiagram.svg)
+<img src="https://cruise.umple.org/umpleonline/ump/tmpd4r0tcwmznan/classDiagram.svg">
