@@ -1,45 +1,81 @@
+import React, { useEffect } from 'react';
 import Form from "react-jsonschema-form";
+import { saveDocument } from "../services";
 
 export function ElemDocJsonSchema() {
 
-  const onSubmit = ({ formData }) => alert("Data submitted: ", formData);
-
-
+  const [formData, setFormData] = React.useState(null);
 
   const schema = {
-    "title": "Formulário de Cadastro de Documentos",
-    "description": "Um simples exemplo",
+    "title": "Tipo de Documento",
+    "description": "Se é Requerimento, Ofício, ...",
     "type": "object",
-    "required": [
-      "doc_tipo",
-      "doc_processo"
-    ],
     "properties": {
-      "doc_tipo": {
-        "type": "string",
+      "doc_td_fk": {
         "title": "Tipo de Documento",
-        "enum": [
-          "Requerimento",
-          "Ofício",
-          "Parecer"
-        ],
-        "default": "Requerimento"
-      },
+        "type": "object",
+        "properties": {
+          "td_id": {
+            "title": "Tipo",
+            "type": "string",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "1"
+                ],
+                "title": "Requerimento"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "2"
+                ],
+                "title": "Ofício"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "3"
+                ],
+                "title": "Despacho"
+              }
+            ]
 
+          }
+        }
+      },
       "doc_processo": {
         "type": "string",
-        "title": "Processo"
+        "title": "Processo",
+        "default": "123"
       },
-      "doc_sei": {
+      "doc_numeracao_sei": {
         "type": "string",
-        "title": "Nº Documento SEI"
+        "title": "Nº Documento SEI",
+        "default": "123"
       },
-      "doc_numero": {
+      "doc_numeracao": {
         "type": "string",
-        "title": "Nº Documento"
+        "title": "Nº Documento",
+        "default": "123"
       }
-
     }
   }
-  return <Form schema={schema} />
+
+  function onSubmit() {
+    saveDocument(formData)
+  }
+
+  useEffect(() => {
+    console.log(formData)
+  }, [formData])
+  return (
+    <Form
+      schema={schema}
+      formData={formData}
+      onChange={(e) => setFormData(e.formData)}
+      onSubmit={onSubmit}
+    />
+  );
 }

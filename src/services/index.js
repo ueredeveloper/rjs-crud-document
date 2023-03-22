@@ -2,17 +2,18 @@ const url = 'https://j-sb-drainage.ueredeveloper.repl.co'
 /**
  * Save document
  */
-export async function saveDocument(document) {
-    fetch(`${url}/document`, {
-        method: 'POST',
-        headers: {
-            Accept: 'application/JSON',
-            'Content-Type': 'application/JSON'
-        },
-        body: JSON.stringify(document)
+export async function saveDocument(documento) {
+
+  fetch(`${url}/documento`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/JSON',
+      'Content-Type': 'application/JSON'
+    },
+    body: JSON.stringify(documento)
+  })
+    .then(response => { return response.json() })
+    .then(json => {
+      console.log(json)
     })
-        .then(response => { return response.json() })
-        .then(json => {
-            console.log(json)
-        })
 }

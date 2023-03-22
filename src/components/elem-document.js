@@ -5,7 +5,6 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { saveDocument } from "../services";
 import { schema } from './schema';
 
-
 export default function ElemDocument() {
 
   const [document, setDocument] = useState({
